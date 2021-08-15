@@ -3,14 +3,14 @@ import CartItem from "./CartItem";
 import { useGlobalContext } from "../../Context/context";
 
 const CartContainer = () => {
-  const { cart } = useGlobalContext();
+  const { cart, total, clearCart } = useGlobalContext();
 
-  if (cart.leanght === 0) {
+  if (cart.length === 0) {
     return (
       <section className="cart">
         <header>
           <h2>your bag</h2>
-          <h4 className="empty-cart">is currently empty</h4>
+          <h4 className="empty-cart">is currently empty! 😟</h4>
         </header>
       </section>
     );
@@ -32,14 +32,11 @@ const CartContainer = () => {
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>$0.00</span>
+            total <span>${total}</span>
           </h4>
         </div>
 
-        <button
-          className="btn clear-btn"
-          onClick={() => console.log("cleared")}
-        >
+        <button className="btn clear-btn" onClick={clearCart}>
           clear cart
         </button>
       </footer>

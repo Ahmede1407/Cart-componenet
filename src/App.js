@@ -7,9 +7,12 @@ import Navbar from "./assests/Componenets/Navbar/Navbar";
 import CartContainer from "./assests/Componenets/Cart/CartContainer";
 
 const App = () => {
+  const { loading } = useGlobalContext();
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <main>
-      <h3>app componenet</h3>
       <Navbar />
       <CartContainer />
     </main>
